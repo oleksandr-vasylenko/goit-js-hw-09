@@ -10,7 +10,7 @@ const stoptBtn = document.querySelector('[data-stop]');
 startBtn.addEventListener('click', onStart);
 
 function onStart() {
-  timerID = setInterval(() => {
+  const timerID = setInterval(() => {
     let bcgColor = getRandomHexColor();
     document.body.style.backgroundColor = bcgColor;
   }, 1000);
