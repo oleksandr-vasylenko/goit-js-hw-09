@@ -7,12 +7,23 @@ const options = {
   defaultDate: new Date(),
   minuteIncrement: 1,
   onClose(selectedDates) {
-    console.log(selectedDates[0]);
+    console.dir(selectedDates[0]);
   },
 };
 
 const dataPicker = new flatpickr('#datetime-picker', options);
-console.log(dataPicker.selectedDates[0]);
+console.dir(dataPicker.selectedDates[0]);
+
+// console.log(Date());
+
+// console.log(Date.parse(Date()));
+
+// console.log(Date.parse(options.defaultDate.toString()));
+
+// console.log(Date.parse(Date()) < Date.parse(options.defaultDate.toString()));
+
+// console.dir(dataPicker.selectedDates[0]);
+// console.dir(JSON.stringify(dataPicker.selectedDates[0]));
 
 // const dateSelect = document.querySelector('#datetime-picker');
 // const startBtn = document.querySelector('[data-start]');
@@ -25,3 +36,9 @@ console.log(dataPicker.selectedDates[0]);
 // dateSelect.addEventListener('focus', flatpickr);
 
 // function onStart(e) {}
+
+// if (options.defaultDate.toString() >= Date()) {
+//   console.log('you selected date ahead. please expect');
+// } else {
+//   console.log("you can't select date earlier than today");
+// }
