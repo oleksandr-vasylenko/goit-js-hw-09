@@ -11,6 +11,7 @@ const options = {
   minuteIncrement: 1,
   onClose(selectedDates) {
     // console.dir(selectedDates[0]);
+
     let pickedDate = Date.parse(dataPicker.selectedDates[0]);
     let currentDate = new Date().getTime();
 
@@ -23,3 +24,9 @@ const options = {
 };
 
 const dataPicker = new flatpickr('#datetime-picker', options);
+
+startBtn.addEventListener('click', onStart);
+
+function onStart(e) {
+  console.log(e);
+}
