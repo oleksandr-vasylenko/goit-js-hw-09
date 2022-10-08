@@ -10,7 +10,7 @@ const secondsNumber = document.querySelector('[data-seconds]');
 startBtn.setAttribute('disabled', '');
 
 let pickedDate = 0;
-let currentDate = 0;
+let currentDate = new Date().getTime();
 let ms = 0;
 let timerId = null;
 
@@ -21,25 +21,24 @@ const options = {
   minuteIncrement: 1,
   onClose(selectedDates) {
     // console.dir(selectedDates[0]);
-    datePicker();
+    dateSelector();
   },
 };
 
 const dataPicker = new flatpickr('#datetime-picker', options);
 
-function datePicker() {
+function dateSelector() {
   pickedDate = Date.parse(dataPicker.selectedDates[0]);
-  currentDate = new Date().getTime();
 
   if (pickedDate <= currentDate) {
     window.alert('Please choose a date in the future');
   } else {
     startBtn.removeAttribute('disabled', '');
   }
-  ms = pickedDate - currentDate;
 }
 
 function convertMs(ms) {
+  ms = pickedDate - currentDate;
   const second = 1000;
   const minute = second * 60;
   const hour = minute * 60;
@@ -57,10 +56,18 @@ startBtn.addEventListener('click', onStart);
 
 function onStart() {
   timerId = setInterval(() => {
+    currentDate = new Date().getTime();
     daysNumber.textContent = convertMs(ms).days;
     hoursNumber.textContent = convertMs(ms).hours;
     minutesNumber.textContent = convertMs(ms).minutes;
     secondsNumber.textContent = convertMs(ms).seconds;
-    console.log(minutesNumber.textContent);
+    stopTimer();
   }, 1000);
+}
+
+function stopTimer() {
+  console.log(ms);
+  if (pickedDate - currentDate < 1000) {
+    clearInterval(timerId);
+  }
 }
