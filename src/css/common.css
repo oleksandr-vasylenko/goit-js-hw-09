@@ -16,3 +16,37 @@ img {
   display: block;
   max-width: 100%;
 }
+
+.timer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.field {
+  font-family: Montserrat;
+  margin: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+  color: white;
+}
+
+.value {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  font-weight: 500;
+  font-size: 40px;
+  background-color: #9d968d;
+  min-width: 80px;
+  height: 100px;
+  text-align: center;
+  border-radius: 4px;
+}
+
+.label {
+  font-weight: 400;
+  color: #212121;
+  margin-top: 10px;
+}
