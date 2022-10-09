@@ -21,6 +21,7 @@ const options = {
   minuteIncrement: 1,
   onClose(selectedDates) {
     // console.dir(selectedDates[0]);
+    // console.log(selectedDates[0] < Date.now());
     dateSelector();
   },
 };
@@ -57,17 +58,22 @@ startBtn.addEventListener('click', onStart);
 function onStart() {
   timerId = setInterval(() => {
     currentDate = new Date().getTime();
-    daysNumber.textContent = convertMs(ms).days;
-    hoursNumber.textContent = convertMs(ms).hours;
-    minutesNumber.textContent = convertMs(ms).minutes;
-    secondsNumber.textContent = convertMs(ms).seconds;
+
+    addLeadingZero();
+
     stopTimer();
   }, 1000);
 }
 
 function stopTimer() {
-  console.log(ms);
   if (pickedDate - currentDate < 1000) {
     clearInterval(timerId);
   }
+}
+
+function addLeadingZero() {
+  daysNumber.textContent = convertMs(ms).days.toString().padStart(2, '0');
+  hoursNumber.textContent = convertMs(ms).hours.toString().padStart(2, '0');
+  minutesNumber.textContent = convertMs(ms).minutes.toString().padStart(2, '0');
+  secondsNumber.textContent = convertMs(ms).seconds.toString().padStart(2, '0');
 }
