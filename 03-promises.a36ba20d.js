@@ -1,2 +1,0 @@
-const e=document.querySelector('[name="delay"]'),t=document.querySelector('[name="step"]'),n=document.querySelector("[name='amount']"),a=document.querySelector("button");let u={};e.addEventListener("input",(function(e){u[e.target.name]=e.target.value})),t.addEventListener("input",(function(e){u[e.target.name]=e.target.value})),n.addEventListener("input",(function(e){})),a.addEventListener("click",(function(e,t){Math.random()}));
-//# sourceMappingURL=03-promises.a36ba20d.js.map

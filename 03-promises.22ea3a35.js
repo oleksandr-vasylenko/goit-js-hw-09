@@ -1,2 +1,0 @@
-!function(){var e=document.querySelector('[name="delay"]'),t=document.querySelector('[name="step"]'),n=document.querySelector("[name='amount']"),a=document.querySelector("button"),u={};e.addEventListener("input",(function(e){u[e.target.name]=e.target.value})),t.addEventListener("input",(function(e){u[e.target.name]=e.target.value})),n.addEventListener("input",(function(e){})),a.addEventListener("click",(function(e,t){Math.random()}))}();
-//# sourceMappingURL=03-promises.22ea3a35.js.map
