@@ -7,9 +7,9 @@ const refs = {
   formEl: document.querySelector('form'),
 };
 
-refs.formEl.addEventListener('submit', onCreatePromise);
+refs.formEl.addEventListener('submit', onSubmit);
 
-function onCreatePromise(e) {
+function onSubmit(e) {
   e.preventDefault();
 
   const delay = Number(refs.delayEl.value);
@@ -20,8 +20,8 @@ function onCreatePromise(e) {
     Notify.failure('❌ Enter a positive number');
   } else {
     for (let i = 0; i < amount; i += 1) {
-      let amountDelay = delay + i * step;
-      createPromise(i + 1, amountDelay)
+      let delayNumber = delay + i * step;
+      createPromise(i + 1, delayNumber)
         .then(({ position, delay }) => {
           Notify.success(`✅ Fulfilled promise ${position} in ${delay}ms`);
         })
